@@ -1,0 +1,47 @@
+﻿
+using ConsoleApp1.Infrastructure;
+
+Console.WriteLine($" - - - Check work inteface IMyCloneable - - - ");
+CellOfBrain brainA = new CellOfBrain("A");
+Console.WriteLine($"Use Ability of brainA {brainA.Name}");
+brainA.Ability();
+Console.WriteLine($"BrainA memorize something.. ");
+brainA.MemorizeSomeThing("I want to clone.");
+Console.WriteLine($"Create the clone of brainA. Use IMyCloneable interface.");
+CellOfBrain brainB = (CellOfBrain)brainA.MyClone();
+Console.WriteLine($"We created new cell and get it name B.");
+brainB.Name = "B";
+Console.WriteLine($"Use Ability of brainB {brainB.Name}");
+brainB.Ability();
+Console.WriteLine($"And check its memories");
+brainB.GetMemorys(); 
+Console.WriteLine($"Add new thinks ... ");
+brainB.MemorizeSomeThing("I am the clone.");
+Console.WriteLine($"Check memories of brainA");
+brainA.GetMemorys();
+Console.WriteLine($"Check memories of brainB");
+brainB.GetMemorys();
+Console.WriteLine($"In conclusion work of inteface IMyCloneable is just create new object with ");
+
+Console.WriteLine($"\n\n - - - Check work common inteface ICloneable - - - ");
+Console.WriteLine($"Create cell leaveB TypeOf CellOfleave.");
+CellOfleave leaveA = new CellOfleave("A");
+Console.WriteLine($"Add new count of chloroplasts.");
+leaveA.CountOfchloroplasts = 5;
+Console.WriteLine($"And use its ability.");
+leaveA.Ability();
+Console.WriteLine($"Get clone whit common ICloneable interface.");
+CellOfleave leaveB = (CellOfleave)leaveA.Clone();
+Console.WriteLine($"Check CountOfchloroplasts in leaveB");
+leaveB.Ability();
+Console.WriteLine($"In conclusion. We get CountOfchloroplasts = 5, but in new object CellOfleave has [CountOfchloroplasts = 1;] as base value.");
+Console.WriteLine($"Because we use not deep clone. And we can exchange value of CountOfchloroplasts without duplicates.");
+leaveB.CountOfchloroplasts = 15;
+leaveA.Ability();
+leaveB.Ability();
+Console.WriteLine($"Try to add new Chlorophyll to leaveA.");
+leaveA.CountofChlorophyll.Add(new Chlorophyll());
+Console.WriteLine($"And rechack Ability of leaveB and leaveA");
+leaveA.Ability();
+leaveB.Ability();
+Console.WriteLine($"Both of List<Chlorophyll> was changed.");
