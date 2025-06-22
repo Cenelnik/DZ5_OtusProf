@@ -4,11 +4,12 @@ namespace ConsoleApp1.Infrastructure
     /// <summary>
     /// Абстрактный класс некой клетки.
     /// </summary>
-    public abstract class Cell : IMyCloneable<Cell>
+    public abstract class Cell : IMyCloneable<Cell>, ICloneable
     {
         public Cell (string name) 
         {
             Name = name;
+            Console.WriteLine($"{this.ToString()}: create new cell {name}.");
         }
         public abstract Cell MyClone();
 
@@ -21,5 +22,10 @@ namespace ConsoleApp1.Infrastructure
         /// Каждая клетка имеет какую то особенность 
         /// </summary>
         public abstract void Ability();
+
+        public object Clone()
+        {
+            return MemberwiseClone();
+        }
     }
 }

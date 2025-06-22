@@ -51,6 +51,4 @@ namespace ConsoleApp1.Infrastructure
         /// </summary>
         public List<Chlorophyll> CountofChlorophyll = new List<Chlorophyll>();
     }
-
-    
 }

@@ -32,7 +32,9 @@ namespace ConsoleApp1.Infrastructure
         public override CellOfBrain MyClone()
         {
             //return this.MemberwiseClone() as CellOfBrain;
-            return new CellOfBrain("");
+            Console.WriteLine($"{this.ToString()}: Clone of {base.Name}.");
+            CellOfBrain resp = new CellOfBrain($"{Name}_{Name}");
+            return resp;
         }
         
         /// <summary>
